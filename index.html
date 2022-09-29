@@ -387,6 +387,7 @@ if (len(f(R_0, recov, N,I, VE,NIlimit,cov,vac_start, time_end,model_type))==4):
     plt.savefig(buffer, format='png')
     buffer.seek(0)
     b64str = base64.b64encode(buffer.read()).decode('UTF-8')
+    buffer.close()
     decoded_image = 'data:image/png;base64,' + b64str 
 
 else:
@@ -459,6 +460,7 @@ else:
     plt.savefig(buffer, format='png')
     buffer.seek(0)
     b64str = base64.b64encode(buffer.read()).decode('UTF-8')
+    buffer.close()
     decoded_image = 'data:image/png;base64,' + b64str 
 `
 
