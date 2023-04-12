@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
       .register('sw.js')
       //createDB(tf)
       .then(() => {
-        console.log('Service Worker Registered');
+        console.log('Service Worker Registered sw.js');
         //createDB(tf);
       });
   }
