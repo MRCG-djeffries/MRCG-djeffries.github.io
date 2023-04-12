@@ -186,7 +186,12 @@ var cacheName = "::prismExperimentsServiceworker";
 var version = "v6";
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    Promise.all([self.skipWaiting(), caches.open(version + cacheName)])
+    Promise.all([self.skipWaiting(), caches.open(version + cacheName)]),
+     caches.open(cachename)
+      .then(function (cache) {
+        console.log('cache opened')
+        return cache.addAll(urlstocache)
+      })
   );
 });
 self.addEventListener("activate", function(event) {
