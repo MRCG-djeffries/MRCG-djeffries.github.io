@@ -133,7 +133,7 @@ self.addEventListener("install", (event) => {
     Promise.all([self.skipWaiting(), caches.open(version + cacheName)]),
      caches.open(cachename)
       .then(function (cache) {
-        console.log('cache opened')
+        console.log(cachename + 'cache opened')
         return cache.addAll(urlstocache)
       })
   );
