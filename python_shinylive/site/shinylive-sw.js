@@ -125,16 +125,12 @@ function asgiToRes(res, body) {
 }
 
 // src/shinylive-sw.ts
-var useCaching = false;
+var useCaching = true;
 var cacheName = "::prismExperimentsServiceworker";
 var version = "v6";
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    //Promise.all([self.skipWaiting(), caches.open(version + cacheName)]),
-    Promise.all([self.skipWaiting(), caches.open(version + cacheName).then(function (cache) { 
-      console.log('cache opened')
-      return cache.addAll(urlstocache)
-    })]),
+    Promise.all([self.skipWaiting(), caches.open(version + cacheName)])
   );
 });
 self.addEventListener("activate", function(event) {
